@@ -1,0 +1,4 @@
+.required > label:first-child:after {
+    content: "*";
+    color: red;
+}
