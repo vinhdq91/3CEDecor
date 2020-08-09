@@ -28,22 +28,19 @@
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
             <a href="" class="nav-link text-dark" [routerLink]="['/user/login']">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link text-dark" (click)="onLogOut()">Sign Out</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a href="" class="nav-link text-dark" [routerLink]="['/user/register']">Sign Up</a>
           </li>
         </ul>
+        <div>
+          <img src="src\assets\Images\user-icon.png" alt="">
+          <p>{{ userDetails.userName }}</p>
+        </div>
       </div>
     </div>
   </nav>

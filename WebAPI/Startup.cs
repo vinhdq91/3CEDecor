@@ -28,6 +28,9 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Vinhdq - Inject AppSettings
+            services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
+
             services.AddControllersWithViews();
 
             // Vinhdq - Add NewtonsoftJson to serialize password when calling API if get error: The JSON value could not be converted to System.Int32
@@ -113,7 +116,7 @@ namespace WebAPI
 
             //app.UseCors();
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200")
+                builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
                        .AllowAnyHeader()
                        .AllowAnyMethod()
             );
